@@ -1,0 +1,32 @@
+.item{
+  img {
+    width: 68px;
+  }
+  display: flex;
+  padding: 16px 8px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid #ada4a4;
+  width: 300px;
+}
+.user{
+  border: 1px dashed #dcafaf;
+  margin-right: 16px;
+  width: 100px;
+  text-align: center;
+  flex-shrink: 0;
+  span{
+    word-break: break-all;
+  }
+}
+.data{
+  display: flex;
+  &--add{
+    .item{
+      flex-direction: column;
+    }
+  }
+}
+button{
+  border: 1px solid rebeccapurple;
+  margin-bottom: 8px;
+}

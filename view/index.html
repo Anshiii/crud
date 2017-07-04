@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>lolita test</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <script src="./jquery-3.2.1.min.js"></script>
+    <script src="./vue.js"></script>
+    <script src="./vuex.js"></script>
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="./index.css">
+    <script src="./index.js"></script>
+</head>
+
+<body>
+<div id="app">
+    <input class="查询" placeholder="查询" v-on:click="">
+    <ul>
+        <li class="data data--add">
+            <div class="action">
+                <button class="add" v-on:click="clickToAdd(document)">添加</button>
+            </div>
+            <div class="item">
+                <input type="text" v-model="document.user">
+                <input type="text" v-model="document.text">
+            </div>
+        </li>
+        <li class="data" v-for="(item,idx) in list" v-if="item.user" :data-id="item._id">
+            <div class="action">
+                <button class="delete" v-on:click="clickToDelete(item._id)">删除</button>
+                <button v-if="!item.isChange" class="change" v-on:click="clickToChange(idx)">修改</button>
+                <button v-if="item.isChange" class="save" v-on:click="clickToSave(idx)">保存</button>
+            </div>
+            <div class="item" v-if="item.isChange">
+                <div class="user">
+                    <input type="text" v-model="item.user">
+                </div>
+                <input type="text" v-model="item.text">
+            </div>
+            <div class="item" v-else>
+                <div class="user">
+                    <span> {{item.user}}</span>
+                </div>
+                <section v-html="item.text.substring(0,24)"></section>
+            </div>
+        </li>
+    </ul>
+</div>
+</body>
+<script>
+
+</script>
+</html>
